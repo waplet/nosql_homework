@@ -16,7 +16,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="{{ URL::to('project') }}">View All Nerds</a></li>
-                    <li><a href="{{ URL::to('project/create') }}">Create a Nerd</a>
+                    <li><a href="{{ URL::to('project/create') }}">Create a Nerd</a></li>
                 </ul>
             </nav>
             <div class="content">

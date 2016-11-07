@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Route::get('/test', 'TestController@index');
 
-Route::resource('project', 'ProjectController');
+Auth::routes();
+
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::resource('project', 'ProjectController');
+});
+Route::get('/home', 'HomeController@index');
