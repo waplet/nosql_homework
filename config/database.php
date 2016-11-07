@@ -87,7 +87,7 @@ return [
             'username' => env('MONGO_USERNAME', 'default'),
             'password' => env('MONGO_PASSWORD', 'default'),
             'options' => [
-                'db' => 'admin' // sets the authentication database required by mongo 3
+                'database' => 'nosql' // sets the authentication database required by mongo 3
             ]
         ]
     ],
