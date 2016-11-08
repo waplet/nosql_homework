@@ -9,6 +9,11 @@
 
                 <div class="panel-body">
                     There will be shown your project logs;
+                    @if ($logs)
+                        @foreach ($logs as $log)
+                            {{ dump($log->toArray()) }}
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

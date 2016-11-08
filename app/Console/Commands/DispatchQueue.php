@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Events\LogAdd;
+use App\Models\Queue;
 use Illuminate\Console\Command;
 
 class DispatchQueue extends Command
@@ -37,6 +39,11 @@ class DispatchQueue extends Command
      */
     public function handle()
     {
-        //
+        $queueItems = Queue::take(100)->get();
+
+        foreach ($queueItems as $queue) {
+            // die(dump($queue));
+            event(new LogAdd($queue));
+        }
     }
 }
