@@ -29,4 +29,16 @@ class Helper
             return intval($diff / (3600*24)) . " days ago";
         }
     }
+
+    public static function getSeverityClass($severity) {
+        if ($severity < 2) {
+            return "";
+        } else if ($severity < 4) {
+            return "bg-info";
+        } else if ($severity < 6) {
+            return "bg-warning";
+        } else {
+            return "bg-danger";
+        }
+    }
 }

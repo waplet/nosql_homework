@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-    </div>
     <div class="panel panel-default">
         <div class="panel-heading clearfix">
             <h4 class="pull-left">Projects</h4>
@@ -30,8 +28,9 @@
                     <td>
                         {{ Form::open(['url' => 'project/' . $project->id, 'class' => 'pull-right']) }}
                             {{ Form::hidden('_method', 'DELETE') }}
-                            {{ Form::submit('Delete this Project', ['class' => 'btn btn-warning']) }}
+                            {{ Form::submit('Delete this Project', ['class' => 'btn btn-warning', 'onClick' => 'return confirm("Delete project?")']) }}
                         {{ Form::close() }}
+                        <a class="btn btn-smll btn-info" href="{{ URL::to('/project/' . $project->id . '/users') }}">Allowed users</a>
                         {{--<a class="btn btn-small btn-success" href="{{ URL::to('project/' . $project->id) }}">Show this Nerd</a>--}}
                         <a class="btn btn-small btn-info" href="{{ URL::to('project/' . $project->id . '/edit') }}">Edit this Project</a>
                     </td>

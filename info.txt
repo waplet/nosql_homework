@@ -1,0 +1,24 @@
+# Create mongo user
+> use admin
+
+> db.createUser({
+  user: "root",
+  pwd: "nosql",
+  roles: [{ role: "userAdminAnyDatabase", db: "admin" }]
+})
+
+# root:nosql
+
+
+# Create nosql database, and user for it
+
+> use nosql
+
+> db.createUser({
+  user: "nosql",
+  pwd: "nosql",
+  roles: [{ role: "userAdmin", db: "nosql" }]
+})
+
+
+db.users.update({ "name": "waplet" },{ $set: { "admin": 1}});
