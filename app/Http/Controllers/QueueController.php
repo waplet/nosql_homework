@@ -14,7 +14,7 @@ class QueueController extends Controller
      */
     public function index()
     {
-        die(dump(Queue::all()->toArray()));
+        die(dump(Queue::where('is_logged', '!=', 1)->get()->toArray()));
     }
 
     /**

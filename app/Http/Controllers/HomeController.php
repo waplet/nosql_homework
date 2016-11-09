@@ -24,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('logs', ErrorLog::orderBy('creation_date')->paginate(30));
+        return view('home')
+            ->with('logs', ErrorLog::orderBy('creation_date', 'desc')
+                ->orderBy('created_at', 'desc')
+                ->simplePaginate(10)
+            );
     }
 }

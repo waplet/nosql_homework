@@ -32,9 +32,11 @@ class QueueController extends Controller
             $queueItem->project_id = $request->request->get('project_id');
             $queueItem->severity = $request->request->get('severity', Queue::DEFAULT);
             $queueItem->data = array_merge($request->all(), ['severity' => $queueItem->severity]);
+            $queueItem->is_logged = 0;
 
             $queueItem->save();
 
+            // If severity higher than error, fire event
             if ($queueItem->severity > 4) {
                 event(new LogAdd($queueItem));
             }

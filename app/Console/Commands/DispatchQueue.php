@@ -39,7 +39,8 @@ class DispatchQueue extends Command
      */
     public function handle()
     {
-        $queueItems = Queue::take(100)->get();
+        // Take 100 items
+        $queueItems = Queue::orderBy('creation_date', 'asc')->where('is_logged', '!=', 1)->take(100)->get();
 
         foreach ($queueItems as $queue) {
             // die(dump($queue));

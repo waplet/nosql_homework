@@ -8,15 +8,18 @@ class Queue extends Model
 {
     protected $collection = 'queue';
 
-    const LOG = 0;
-    const DEBUG = 1;
-    const NOTICE = 2;
-    const WARNING = 3;
-    const ERROR = 4;
-    const FATAL = 5;
-    const CRITICAL = 6;
-    const APOCALYPSE = 7;
-    const DEFAULT = self::LOG;
+    public static $severities = [
+        "LOG",
+        "DEBUG",
+        "NOTICE",
+        "WARNING",
+        "ERROR",
+        "FATAL",
+        "CRITICAL",
+        "APOCALYPSE",
+    ];
+
+    const DEFAULT = 0;
 
     protected $fillable = [
         'created_at',
@@ -28,4 +31,13 @@ class Queue extends Model
     protected $dates = [
         'creation_date'
     ];
+
+    public static function getSeverityName($severity)
+    {
+        if (array_key_exists($severity, self::$severities)) {
+            return self::$severities[$severity];
+        }
+
+        return "UNKNOWN ( " . $severity . " )";
+    }
 }
