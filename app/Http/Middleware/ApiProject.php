@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Project;
 use Closure;
-use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 
 class ApiProject
 {
@@ -23,6 +23,6 @@ class ApiProject
             return $next($request);
         }
 
-        return new Response("Incorrect Project ID specified", 400);
+        return new JsonResponse("Incorrect Project ID specified", 400);
     }
 }

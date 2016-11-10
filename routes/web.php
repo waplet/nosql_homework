@@ -24,4 +24,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::resource('project/{project}/users', 'ProjectUserController');
     Route::resource('queue', 'QueueController');
 });
-Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index');
+    Route::get('/docs', 'DocsController@index');
+});
