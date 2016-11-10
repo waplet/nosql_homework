@@ -10,13 +10,13 @@
                     style="overflow:hidden;white-space: nowrap; text-emphasis: circle;">
                     <thead>
                         <tr>
-                            <th width="5">ID</th>
-                            <th style="width:10%;">Date</th>
-                            <th style="width:10%;">Project</th>
-                            <th style="width:10%;">Severity</th>
-                            <th style="width:20%;">File</th>
-                            <th>Method</th>
-                            <th>Message</th>
+                            <th style="width:5%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">ID</th>
+                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">Date</th>
+                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">Project</th>
+                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">Severity</th>
+                            <th style="width:20%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">File</th>
+                            <th style="overflow:hidden;white-space: nowrap; text-emphasis: circle;">Method</th>
+                            <th style="overflow:hidden;white-space: nowrap; text-emphasis: circle;">Message</th>
                         </tr>
                     </thead>
                 @if ($logs)
