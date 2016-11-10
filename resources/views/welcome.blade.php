@@ -84,7 +84,8 @@
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Laravel dokumentācija</a>
-                    <a href="https://estudijas.lu.lv">Estudijas</a>
+                    <a href="{{ url('/docs') }}">Dokumentācija</a>
+                    <a href="http://estudijas.lu.lv">Estudijas</a>
                 </div>
             </div>
         </div>
