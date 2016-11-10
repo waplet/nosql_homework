@@ -26,7 +26,7 @@
                                 <span class="small">{{ $log->creation_date }}</span></td>
                             <td>{{ \App\Models\Project::getProjectName($log->project_id) }}</td>
                             <td>{{ \App\Models\Queue::getSeverityName($log->severity) }}</td>
-                            <td>{{ pathinfo($log->file)['filename'] }}</td>
+                            <td>{{ mb_substr($log->file,0, 50) . (mb_strlen($log->file) > 50 ? '...' : '') }}</td>
                             <td>{{ $log->method }}</td>
                             <td width="40%">{{ is_array($log->message) ?
                                 str_replace("\n", "", mb_substr(print_r($log->message, true), 0, 150)) :
