@@ -30,7 +30,7 @@
                             <td>{{ $log->method }}</td>
                             <td width="40%">{{ is_array($log->message) ?
                                 str_replace("\n", "", mb_substr(print_r($log->message, true), 0, 150)) :
-                                str_replace("\n", "", trim(mb_substr($log->message, 0, 150)))git }}</td>
+                                str_replace("\n", "", trim(mb_substr($log->message, 0, 150))) }}</td>
                         </tr>
                         {{--{{ dump($log->toArray()) }}--}}
                     @endforeach
