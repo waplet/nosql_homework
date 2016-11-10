@@ -35,8 +35,8 @@ class QueueController extends Controller
 
             $queueItem->save();
 
-            // If severity higher than error, fire event
-            if ($queueItem->severity > 4) {
+            // If severity higher than warning, fire event
+            if ($queueItem->severity > 3) {
                 event(new LogAdd($queueItem));
             }
         }
