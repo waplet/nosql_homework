@@ -27,9 +27,9 @@ class QueueController extends Controller
             return new JsonResponse($validator->errors(), 400);
         } else {
             $queueItem = new Queue();
-            $queueItem->creation_date = $request->request->get('creation_date');
-            $queueItem->project_id = $request->request->get('project_id');
-            $queueItem->severity = $request->request->get('severity', Queue::DEFAULT);
+            $queueItem->creation_date = $request->input('creation_date');
+            $queueItem->project_id = $request->input('project_id');
+            $queueItem->severity = $request->input('severity', Queue::DEFAULT);
             $queueItem->data = array_merge($request->all(), ['severity' => $queueItem->severity]);
             $queueItem->is_logged = 0;
 

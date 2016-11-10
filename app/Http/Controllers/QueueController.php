@@ -13,7 +13,7 @@ class QueueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // die(dump(Queue::where('is_logged', '!=', 1)->get()->toArray()));
         $queueItems = Queue::paginate(30);

@@ -17,7 +17,7 @@ class ApiProject
      */
     public function handle($request, Closure $next)
     {
-        $projectId = $request->request->get('project_id');
+        $projectId = $request->input('project_id');
 
         if (Project::find($projectId)) {
             return $next($request);

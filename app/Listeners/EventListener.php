@@ -38,7 +38,7 @@ class EventListener
         $data = $event->temporaryLog->data;
         $errorLog->file = isset($data['file']) ? $data['file'] : '';
         $errorLog->method = isset($data['method']) ? $data['method'] : '';
-	$errorLog->message = isset($data['message']) ? $data['message'] : '';
+        $errorLog->message = isset($data['message']) ? (is_array($data['message']) ? json_encode($data['message']) : (string)$data['message']) : '';
         $errorLog->request_data = $event->temporaryLog->data;
 
         if ($errorLog->save()) {
