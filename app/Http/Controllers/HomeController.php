@@ -28,7 +28,7 @@ class HomeController extends Controller
         return view('home')
             ->with('logs', ErrorLog::orderBy('creation_date', 'desc')
                 ->orderBy('created_at', 'desc')
-                ->simplePaginate(10)
+                ->simplePaginate(50)
             );
     }
 }
