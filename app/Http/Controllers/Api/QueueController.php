@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Events\LogAdd;
-use App\Jobs\TransferLog;
 use App\Models\Project;
 use App\Models\Queue;
 use Illuminate\Http\JsonResponse;

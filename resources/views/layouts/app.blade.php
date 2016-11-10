@@ -45,7 +45,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/home') }}">Dashboard</a></li>
-			<li><a href="{{ url('/docs') }}">Dokumentācija</a></li>
+                        <li><a href="{{ url('/docs') }}">Dokumentācija</a></li>
                         @if (Auth::user() && Auth::user()->isAdmin())
                             <li><a href="{{ url('/project') }}">Projects</a></li>
                             <li><a href="{{ url('/queue') }}">Temprorary queue</a></li>
@@ -85,6 +85,20 @@
         </nav>
 
         <div class="container">
+            @if (Session::has('message'))
+                <div class="alert alert-info">{{ Session::get('message') }}</div>
+            @endif
+
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             @yield('content')
         </div>
     </div>

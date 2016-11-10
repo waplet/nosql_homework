@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Queue;
 use Illuminate\Http\Request;
+use DB;
 
 class QueueController extends Controller
 {
@@ -14,7 +15,16 @@ class QueueController extends Controller
      */
     public function index()
     {
-        die(dump(Queue::where('is_logged', '!=', 1)->get()->toArray()));
+        // die(dump(Queue::where('is_logged', '!=', 1)->get()->toArray()));
+        $queueItems = Queue::paginate(30);
+        // ->select('project_id' , 'count(*) as item_count')
+            // ->where('is_logged', '!=', 1)
+            // ->groupBy('project_id')
+
+        // die(dump($queueItems));
+
+        return view('queue.index')
+            ->with('queueItems', $queueItems);
     }
 
     /**
