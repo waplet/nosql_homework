@@ -10,13 +10,13 @@
                     style="overflow:hidden;white-space: nowrap; text-emphasis: circle;">
                     <thead>
                         <tr>
-                            <th style="width:5%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">ID</th>
-                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">Date</th>
-                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">Project</th>
-                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">Severity</th>
-                            <th style="width:20%;overflow:hidden;white-space: nowrap; text-emphasis: circle;">File</th>
-                            <th style="overflow:hidden;white-space: nowrap; text-emphasis: circle;">Method</th>
-                            <th style="overflow:hidden;white-space: nowrap; text-emphasis: circle;">Message</th>
+                            <th style="width:5%;overflow:hidden;white-space: nowrap; text-overflow: ellipsis;">ID</th>
+                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-overflow: ellipsis;">Date</th>
+                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-overflow: ellipsis;">Project</th>
+                            <th style="width:10%;overflow:hidden;white-space: nowrap; text-overflow: ellipsis;">Severity</th>
+                            <th style="width:20%;overflow:hidden;white-space: nowrap; text-overflow: ellipsis;">File</th>
+                            <th style="overflow:hidden;white-space: nowrap; text-overflow: ellipsis;">Method</th>
+                            <th style="overflow:hidden;white-space: nowrap; text-overflow: ellipsis;">Message</th>
                         </tr>
                     </thead>
                 @if ($logs)
