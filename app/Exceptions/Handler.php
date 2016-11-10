@@ -55,6 +55,7 @@ class Handler extends ExceptionHandler
 
                 die(dump($res->getBody()->getContents()));
             } catch (\Exception $ex) {
+                dump($ex->getMessage());
                 die("Could not send exception");
             }
         }
