@@ -28,7 +28,7 @@
                             <td>{{ \App\Models\Queue::getSeverityName($log->severity) }}</td>
                             <td>{{ $log->file }}</td>
                             <td>{{ $log->method }}</td>
-                            <td width="40%">{{ mb_substr($log->message, 0, 150) }}</td>
+                            <td width="40%">{{ is_array($log->message) ? print_r($log->message) : mb_substr($log->message, 0, 150) }}</td>
                         </tr>
                         {{--{{ dump($log->toArray()) }}--}}
                     @endforeach
