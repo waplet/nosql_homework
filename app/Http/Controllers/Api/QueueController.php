@@ -29,7 +29,7 @@ class QueueController extends Controller
             $queueItem = new Queue();
             $queueItem->creation_date = $request->input('creation_date');
             $queueItem->project_id = $request->input('project_id');
-            $queueItem->severity = $request->input('severity', Queue::DEFAULT);
+            $queueItem->severity = intval($request->input('severity', Queue::DEFAULT));
             $queueItem->data = array_merge($request->all(), ['severity' => $queueItem->severity]);
             $queueItem->is_logged = 0;
 
