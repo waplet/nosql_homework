@@ -17,6 +17,6 @@
 	<p>method=[varchar]</p>
 	<p>message=[varchar]</p>
 	<li>Sample usage</li>
-	<p>/api/queue/add?project_id=129b0asd01asd012&severity=3&creation_date=2016-11-09 12:34:56&file=index.php&method=runFile()&message=Uncaught ErrorException: Incorrect filename specified</p>
+	<p><br/><code>/api/queue/add?project_id=129b0asd01asd012&severity=3&creation_date=2016-11-09 12:34:56&file=index.php&method=runFile()&message=Uncaught ErrorException: Incorrect filename specified</code></p>
     </ul>
 @endsection

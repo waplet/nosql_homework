@@ -19,3 +19,5 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/queue/add', 'Api\QueueController@add')
     ->middleware('api_project');
+Route::post('/queue/add', 'Api\QueueController@add')
+    ->middleware('api_project');

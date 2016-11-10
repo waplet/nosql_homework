@@ -45,6 +45,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/home') }}">Dashboard</a></li>
+			<li><a href="{{ url('/docs') }}">Dokumentācija</a></li>
                         @if (Auth::user() && Auth::user()->isAdmin())
                             <li><a href="{{ url('/project') }}">Projects</a></li>
                             <li><a href="{{ url('/queue') }}">Temprorary queue</a></li>
