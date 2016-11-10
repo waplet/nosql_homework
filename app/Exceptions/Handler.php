@@ -40,8 +40,8 @@ class Handler extends ExceptionHandler
                 $client = new Client();
                 $params = [
                     'form_params' => [
-                        // 'project_id' => env('PROJECT_ID', '58247127f1290140786270f1'),
-                        'project_id' => env('PROJECT_ID', '5824c228f12901112c004031'),
+                        'project_id' => env('PROJECT_ID', '58247127f1290140786270f1'),
+                        // 'project_id' => env('PROJECT_ID', '5824c228f12901112c004031'),
                         'creation_date' => date('Y-m-d H:i:s'),
                         'severity' => '5',
                         'file' => $exception->getFile(),
