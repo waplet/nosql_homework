@@ -6,8 +6,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-                <table class="table table-condensed"
-                    style="width:100%;table-layout: fixed;">
+                <table class="table table-condensed" style="table-layout: fixed;width:100%;">
                     <thead>
                         <tr>
                             <th>ID</th>
