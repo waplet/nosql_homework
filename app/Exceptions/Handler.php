@@ -53,10 +53,10 @@ class Handler extends ExceptionHandler
                 $res = $client->request('POST', url('api/queue/add'), $params);
                 // $res = $client->request('POST', 'http://localhost:8000/api/queue/add', $params);
 
-                die(dump($res->getBody()->getContents()));
+                // die(dump($res->getBody()->getContents()));
             } catch (\Exception $ex) {
-                dump($ex->getMessage());
-                die("Could not send exception");
+                // dump($ex->getMessage());
+                // die("Could not send exception");
             }
         }
 
