@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
                         'severity' => $severity,
                         'file' => basename($exception->getFile()),
                         'method' => $exception->getLine(),
-                        'message' => $exception->getTraceAsString()
+                        'message' => $exception->getMessage() . "\n" . $exception->getTraceAsString()
                     ]
                 ];
                 // die(dump(url('api/queue/add')));
