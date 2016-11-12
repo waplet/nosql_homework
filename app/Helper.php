@@ -33,9 +33,9 @@ class Helper
     public static function getSeverityClass($severity) {
         if ($severity < 2) {
             return "";
-        } else if ($severity < 4) {
+        } else if ($severity < 3) {
             return "bg-info";
-        } else if ($severity < 6) {
+        } else if ($severity < 5) {
             return "bg-warning";
         } else {
             return "bg-danger";
