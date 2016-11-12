@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-                @if ($logs)
+                @if (count($logs) > 0)
                 <table class="table table-condensed log-table" style="table-layout: fixed;width:100%;">
                     <thead>
                         <tr>
@@ -41,7 +41,7 @@
                     </div>
                 @endif
                 </table>
-                @if ($logs)
+                @if (count($logs) > 0)
                     <div class="panel-footer">
                         {{ $logs->links() }}
                     </div>
