@@ -36,10 +36,10 @@ class Handler extends ExceptionHandler
     public function report(Exception $exception)
     {
         if (\App::environment() != 'local' &&  !($exception instanceof GuzzleException)) {
-            $severity = 3; // WARNING
+            $severity = 4; // WARNING
 
             if ($exception instanceof \ErrorException) {
-                $severity = 4;
+                $severity = 5;
             }
 
             try {
