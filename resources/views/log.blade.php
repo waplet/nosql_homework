@@ -33,7 +33,7 @@
 
             </tr>
             <tr>
-                <td colspan="2">asd{{ $errorLog->message }}</td>
+                <td colspan="2">{{ $errorLog->message }}</td>
             </tr>
         </table>
     </div>
