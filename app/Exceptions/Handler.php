@@ -35,20 +35,26 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        if (!($exception instanceof GuzzleException)) {
+        if (\App::environment() != 'local' &&  !($exception instanceof GuzzleException)) {
+            $severity = 3; // WARNING
+
+            if ($exception instanceof \ErrorException) {
+                $severity = 4;
+            }
+
             try {
                 $client = new Client();
                 $params = [
                     'form_params' => [
                         'project_id' => env('PROJECT_ID', '58247127f1290140786270f1'),
-                        // 'project_id' => env('PROJECT_ID', '5824c228f12901112c004031'),
                         'creation_date' => date('Y-m-d H:i:s'),
-                        'severity' => '5',
+                        'severity' => $severity,
                         'file' => basename($exception->getFile()),
                         'method' => $exception->getLine(),
                         'message' => $exception->getTraceAsString()
                     ]
                 ];
+                // die(dump(url('api/queue/add')));
                 $res = $client->request('POST', url('api/queue/add'), $params);
                 // $res = $client->request('POST', 'http://nosql.waplet.id.lv/api/queue/add', $params);
                 // $res = $client->request('POST', 'http://localhost:8000/api/queue/add', $params);

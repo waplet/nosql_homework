@@ -21,7 +21,7 @@
             <tbody>
             @foreach($projectUsers as $key => $projectUser)
                 <tr>
-                    <td>{{ $projectUser->id }}</td>
+                    <td>{{ $projectUser->project ? $projectUser->project->id : 'Unknown' }}</td>
                     <td>{{ $projectUser->user ? $projectUser->user->name : 'Unknown'}}</td>
                     <td>
                         {{ Form::open(['url' => 'project/' . $project->id . '/users']) }}

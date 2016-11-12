@@ -27,5 +27,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/log/{log}', 'HomeController@viewLog');
 });
 Route::get('/docs', 'DocsController@index');

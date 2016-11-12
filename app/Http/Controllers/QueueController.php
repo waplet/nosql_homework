@@ -16,9 +16,10 @@ class QueueController extends Controller
     public function index(Request $request)
     {
         // die(dump(Queue::where('is_logged', '!=', 1)->get()->toArray()));
-        $queueItems = Queue::paginate(30);
+        $queueItems = Queue::
         // ->select('project_id' , 'count(*) as item_count')
-            // ->where('is_logged', '!=', 1)
+            where('is_logged', '!=', 1)
+            ->paginate(30);
             // ->groupBy('project_id')
 
         // die(dump($queueItems));

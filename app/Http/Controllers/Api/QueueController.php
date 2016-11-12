@@ -16,9 +16,9 @@ class QueueController extends Controller
     public function add(Request $request)
     {
         $rules = [
-            'creation_date' => 'required',
+            'creation_date' => 'required|date_format:"Y-m-d H:i:s"',
             'project_id' => 'required',
-            'severity' => 'integer|min:0|max:8',
+            'severity' => 'integer|min:0|max:7',
         ];
 
         $validator = Validator::make($request->all(), $rules);
