@@ -30,3 +30,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/log/{log}', 'HomeController@viewLog');
 });
 Route::get('/docs', 'DocsController@index');
+
+Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
