@@ -22,7 +22,6 @@ creation_date=[datetime] - required|date_format:"Y-m-d H:i:s"</pre>
                         <i>Optional</i>:
                         <pre>
 file=[varchar]
-method=[varchar]
 message=[varchar]</pre>
                     </td>
                 </tr>

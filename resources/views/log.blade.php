@@ -25,10 +25,6 @@
                 <td>{{ $errorLog->file }}</td>
             </tr>
             <tr>
-                <td><b>Method</b></td>
-                <td>{{ $errorLog->method }}</td>
-            </tr>
-            <tr>
                 <td style="vertical-align: top;" colspan="2"><b>Message</b></td>
 
             </tr>

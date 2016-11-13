@@ -15,7 +15,6 @@
                             <th>Project</th>
                             <th>Severity</th>
                             <th>File</th>
-                            <th>Method</th>
                             <th>Message</th>
                         </tr>
                     </thead>
@@ -27,7 +26,6 @@
                             <td class="item" style="width:10%;">{{ \App\Models\Project::getProjectName($log->project_id) }}</td>
                             <td class="item" style="width:10%;">{{ \App\Models\Queue::getSeverityName($log->severity) }}</td>
                             <td class="item" style="width:20%;">{{ mb_substr($log->file,0, 50) . (mb_strlen($log->file) > 50 ? '...' : '') }}</td>
-                            <td class="item" style="">{{ $log->method }}</td>
                             <td class="item" style="width:30%;">{{ is_array($log->message) ?
                                 str_replace("\n", "", mb_substr(print_r($log->message, true), 0, 150)) :
                                 str_replace("\n", "", trim(mb_substr($log->message, 0, 150))) }}</td>
