@@ -59,6 +59,11 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <a href="{{ url('/auth/github') }}" class="btn btn-warning">Github Login</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

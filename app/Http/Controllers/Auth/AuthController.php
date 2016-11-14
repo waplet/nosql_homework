@@ -28,12 +28,10 @@ class AuthController extends Controller
 
         // OAuth Two Providers
         $token = $user->token;
-        $refreshToken = $user->refreshToken; // not always provided
         $expiresIn = $user->expiresIn;
 
         // OAuth One Providers
         $token = $user->token;
-        $tokenSecret = $user->tokenSecret;
 
         // All Providers
         $user->getId();
@@ -41,5 +39,7 @@ class AuthController extends Controller
         $user->getName();
         $user->getEmail();
         $user->getAvatar();
+        
+        die(dump($user));
     }
 }
