@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Events\LogAdd;
 use App\Models\Queue;
 use Illuminate\Console\Command;
+use Log;
 
 class DispatchQueue extends Command
 {
@@ -46,5 +47,7 @@ class DispatchQueue extends Command
             // die(dump($queue));
             event(new LogAdd($queue));
         }
+
+        Log::info('Queue dispatcher run');
     }
 }
