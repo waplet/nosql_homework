@@ -36,9 +36,8 @@ return [
     ],
 
     'github' => [
-        'client_id' => '7dae5f66ed586c3a1dc4',
-        'client_secret' => '6c23b84514f089804a7185c44d7f18d31408a778',
-        //'redirect' => 'http://localhost:8000/auth/github/callback',
-        'redirect' => 'http://nosql.waplet.id.lv/auth/github/callback',
+        'client_id' => env('GITHUB_CLIENT', '7dae5f66ed586c3a1dc4'),
+        'client_secret' => env('GITHUB_SECRET', '6c23b84514f089804a7185c44d7f18d31408a778'),
+        'redirect' => env('GITHUB_CALLBACK', 'http://nosql.waplet.id.lv/auth/github/callback'),
     ]
 ];

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Socialite;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -26,20 +28,20 @@ class AuthController extends Controller
     {
         $user = Socialite::driver('github')->user();
 
-        // OAuth Two Providers
-        $token = $user->token;
-        $expiresIn = $user->expiresIn;
+        if (!$user) {
+            return redirect('/')->with('message', 'Something went wrong!');
+        }
 
-        // OAuth One Providers
-        $token = $user->token;
+        $email = $user->getEmail();
+        $localUser = User::where('email', '=', $email)->first();
 
-        // All Providers
-        $user->getId();
-        $user->getNickname();
-        $user->getName();
-        $user->getEmail();
-        $user->getAvatar();
-        
-        die(dump($user));
+        if ($localUser) {
+            if (Auth::login($localUser)) {
+                return redirect('/home');
+            }
+            return redirect('/register')->with('message', 'Could not login in with you Github Account');
+        }
+
+        return redirect('/register')->with('email', $email);
     }
 }
