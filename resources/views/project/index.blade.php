@@ -15,6 +15,7 @@
                 <th>ID</th>
                 <th>Project Name</th>
                 <th>Project Owner</th>
+                <th>Has booking?</th>
                 <th>Options</th>
             </tr>
             </thead>
@@ -25,6 +26,7 @@
                     <td>{{ $project->name }}</td>
                     <td>{{ $project->owner }}</td>
 
+                    <td>{{ $project->has_booking ? 'Yes' : 'No' }}</td>
                     <td>
                         {{ Form::open(['url' => 'project/' . $project->id, 'class' => 'pull-right']) }}
                             {{ Form::hidden('_method', 'DELETE') }}

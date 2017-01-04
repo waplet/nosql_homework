@@ -23,6 +23,11 @@
         {{ Form::textarea('description', null, ['class' => 'form-control']) }}
     </div>
 
+    <div class="form-group">
+        {{ Form::label('has_booking', 'Has booking?') }}
+        {{ Form::checkbox('has_booking', 1, false, ['class' => 'checkbox']) }}
+    </div>
+
     {{ Form::submit('Create the Project!', ['class' => 'btn btn-primary']) }}
 
     {{ Form::close() }}

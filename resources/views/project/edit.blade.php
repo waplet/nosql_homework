@@ -23,11 +23,16 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('description', 'Nerd Level') }}
+                {{ Form::label('description', 'Description') }}
                 {{ Form::textarea('description',null, ['class' => 'form-control']) }}
             </div>
 
-            {{ Form::submit('Edit the Nerd!', ['class' => 'btn btn-primary']) }}
+            <div class="form-group">
+                {{ Form::label('has_booking', 'Has booking?') }}
+                {{ Form::checkbox('has_booking', 1, false, ['class' => 'checkbox']) }}
+            </div>
+
+            {{ Form::submit('Edit the project!', ['class' => 'btn btn-primary']) }}
 
             {{ Form::close() }}
         </div>

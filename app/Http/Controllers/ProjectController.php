@@ -57,6 +57,7 @@ class ProjectController extends Controller
             $project->name = $request->request->get('name');
             $project->owner = $request->request->get('owner');
             $project->description = $request->request->get('description');
+            $project->has_booking = $request->request->get('has_booking', 0);
             $project->save();
 
             Session::flash('message', 'Project successfully added');
@@ -118,6 +119,7 @@ class ProjectController extends Controller
             $project->name = $request->request->get('name');
             $project->owner = $request->request->get('owner');
             $project->description = $request->request->get('description');
+            $project->has_booking = $request->request->get('has_booking', 0);
             $project->save();
 
             Session::flash('message', 'Project successfully updated!');

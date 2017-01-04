@@ -3,29 +3,33 @@
 namespace App\Listeners;
 
 use App\Events\LogAdd;
+use App\Events\TriggerInvoice;
 use App\Models\ErrorLog;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Models\Project;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 
 class EventListener
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function subscribe($events)
     {
-        //
-    }
+        $events->listen(
+            LogAdd::class,
+            '\App\Listeners\EventListener@onLogAdd'
+        );
 
+        $events->listen(
+            TriggerInvoice::class,
+            '\App\Listeners\EventListener@onTriggerInvoice'
+        );
+    }
     /**
      * Handle the event.
      *
      * @param  LogAdd $event
      * @throws \ErrorException
      */
-    public function handle(LogAdd $event)
+    public function onLogAdd(LogAdd $event)
     {
         if ($event->temporaryLog->is_logged == 1) {
             return;
@@ -44,8 +48,48 @@ class EventListener
             // $event->temporaryLog->delete();
             $event->temporaryLog->is_logged = 1;
             $event->temporaryLog->update();
+
+            // Get project
+            $project = Project::find($errorLog->project_id);
+            if (!$project) {
+                Log::alert('Project not found with id - ' . $errorLog->project_id);
+            } else {
+                // If project is in booking system, let's trigger event for creating an invoice
+                if ($project->has_booking) {
+                    event(new TriggerInvoice($project->id, $errorLog->id));
+                }
+            }
         } else {
             throw new \ErrorException("Could not save error log");
         }
+    }
+
+    public function onTriggerInvoice(TriggerInvoice $event)
+    {
+        $data = [
+            'company_name' => $event->getCompanyName(),
+            'log_id' => $event->getLogId(),
+            'url' => url('/log/' . $event->getLogId())
+        ];
+
+        $bookingAppUrl = config('services.booking_app.url');
+        // HTTP REQUEST FOR SHEROKUAPP
+
+        // Works
+        return;
+        // dump($bookingAppUrl);
+        // die(dump($data));
+        try {
+            $client = new Client();
+            $params = [
+                'form_params' => $data
+            ];
+
+            $res = $client->request('POST', $bookingAppUrl, $params);
+        } catch (\Exception $ex) {
+            throw new \Exception("Could not make request to Booking App - " . $bookingAppUrl);
+            // do nothing
+        }
+
     }
 }

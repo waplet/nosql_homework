@@ -39,5 +39,9 @@ return [
         'client_id' => env('GITHUB_CLIENT', '7dae5f66ed586c3a1dc4'),
         'client_secret' => env('GITHUB_SECRET', '6c23b84514f089804a7185c44d7f18d31408a778'),
         'redirect' => env('GITHUB_CALLBACK', 'http://nosql.waplet.id.lv/auth/github/callback'),
+    ],
+
+    'booking_app' => [
+        'url' => env('BOOKING_APP')
     ]
 ];
