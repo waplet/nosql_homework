@@ -50,6 +50,7 @@
                         @if (Auth::user() && Auth::user()->isAdmin())
                             <li><a href="{{ url('/project') }}">Projects</a></li>
                             <li><a href="{{ url('/queue') }}">Temprorary queue</a></li>
+                            <li><a href="{{ url('/testBookingApp') }}">Test Booking App</a></li>
                         @endif
                     </ul>
 

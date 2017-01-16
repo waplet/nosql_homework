@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::resource('project', 'ProjectController');
     Route::resource('project/{project}/users', 'ProjectUserController');
     Route::resource('queue', 'QueueController');
+    Route::resource('testBookingApp', 'TestController@testBookingApp');
 });
 
 Route::group(['middleware' => ['auth']], function () {

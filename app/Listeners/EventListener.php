@@ -56,7 +56,7 @@ class EventListener
             } else {
                 // If project is in booking system, let's trigger event for creating an invoice
                 if ($project->has_booking) {
-                    event(new TriggerInvoice($project->id, $errorLog->id));
+                    event(new TriggerInvoice($project->name, $errorLog->id));
                 }
             }
         } else {
@@ -67,25 +67,25 @@ class EventListener
     public function onTriggerInvoice(TriggerInvoice $event)
     {
         $data = [
-            'company_name' => $event->getCompanyName(),
+            'name' => $event->getCompanyName(),
+            // 'company_name' => $event->getCompanyName(),
             'log_id' => $event->getLogId(),
-            'url' => url('/log/' . $event->getLogId())
+            'url' => url('/log/' . $event->getLogId()),
+            'amount' => '50',
         ];
 
-        $bookingAppUrl = config('services.booking_app.url');
+        $bookingAppUrl = config('services.booking_app.url') . '?' . http_build_query($data);
         // HTTP REQUEST FOR SHEROKUAPP
 
-        // Works
-        return;
-        // dump($bookingAppUrl);
-        // die(dump($data));
         try {
             $client = new Client();
-            $params = [
-                'form_params' => $data
-            ];
+            // $params = [
+            //     'form_params' => $data
+            // ];
 
-            $res = $client->request('POST', $bookingAppUrl, $params);
+            // $res = $client->request('POST', $bookingAppUrl, $params);
+            $res = $client->request('GET', $bookingAppUrl);
+            Log::info("Invoice triggered for error log: " . $event->getLogId());
         } catch (\Exception $ex) {
             throw new \Exception("Could not make request to Booking App - " . $bookingAppUrl);
             // do nothing
