@@ -70,7 +70,7 @@ class EventListener
             'name' => $event->getCompanyName(),
             // 'company_name' => $event->getCompanyName(),
             'log_id' => $event->getLogId(),
-            'url' => url('/log/' . $event->getLogId()),
+            'link' => url('/log/' . $event->getLogId()),
             'amount' => '50',
         ];
 
